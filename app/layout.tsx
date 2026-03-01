@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     "OpenClaw",
     "skill security",
     "malware scanner",
-    "skill guard",
+    "clawguard",
   ],
   applicationName: "ClawGuard",
   authors: [{ name: "BChopLXXXII", url: "https://x.com/BChopLXXXII" }],
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     description:
       "Scan any ClawHub skill for malicious patterns before you install it.",
     type: "website",
-    url: "https://github.com/BChopLXXXII/claw-skill-guard",
+    url: "https://github.com/BChopLXXXII/clawguard",
     siteName: "ClawGuard",
   },
   twitter: {

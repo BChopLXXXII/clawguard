@@ -113,6 +113,16 @@ export function runScan(request: ScanRequest): ScanResult {
     "env_harvesting",
     "shell_injection",
     "hidden_network",
+    "reverse_shell",
+    "download_execute",
+    "file_destruction",
+    "persistence",
+    "privilege_escalation",
+    "powershell",
+    "browser_theft",
+    "clipboard_hijack",
+    "windows_lolbins",
+    "network_listener",
   ];
 
   const categories: CategoryResult[] = allCategories.map((cat) => {

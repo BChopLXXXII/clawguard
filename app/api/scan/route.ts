@@ -85,7 +85,7 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
 
 export async function GET(): Promise<NextResponse> {
   return NextResponse.json({
-    name: "claw-skill-guard scan API",
+    name: "ClawGuard scan API",
     version: "1.0.0",
     usage: "POST /api/scan with { files: [{ name, content }] }",
   });

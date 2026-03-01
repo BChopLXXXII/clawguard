@@ -6,7 +6,17 @@ export type ThreatCategory =
   | "obfuscation"
   | "env_harvesting"
   | "shell_injection"
-  | "hidden_network";
+  | "hidden_network"
+  | "reverse_shell"
+  | "download_execute"
+  | "file_destruction"
+  | "persistence"
+  | "privilege_escalation"
+  | "powershell"
+  | "browser_theft"
+  | "clipboard_hijack"
+  | "windows_lolbins"
+  | "network_listener";
 
 export type OverallRating = "PASS" | "WARN" | "BLOCK";
 
@@ -96,5 +106,55 @@ export const CATEGORY_META: Record<
   hidden_network: {
     label: "Hidden Network Calls",
     description: "DNS exfiltration, IP-based callbacks, or encoded URLs",
+  },
+  reverse_shell: {
+    label: "Reverse Shell",
+    description:
+      "Outbound shell connections giving an attacker remote command execution",
+  },
+  download_execute: {
+    label: "Download & Execute",
+    description:
+      "Fetching remote code and piping it directly into a shell interpreter",
+  },
+  file_destruction: {
+    label: "File Destruction",
+    description:
+      "Dangerous file deletion, disk wiping, or recursive removal commands",
+  },
+  persistence: {
+    label: "Persistence & Backdoors",
+    description:
+      "Installing cron jobs, systemd services, or startup items to survive reboots",
+  },
+  privilege_escalation: {
+    label: "Privilege Escalation",
+    description:
+      "Attempts to gain elevated permissions via sudo, setuid, or permission changes",
+  },
+  powershell: {
+    label: "PowerShell Threats",
+    description:
+      "Malicious PowerShell patterns including encoded commands, bypass flags, and hidden execution",
+  },
+  browser_theft: {
+    label: "Browser Data Theft",
+    description:
+      "Accessing browser cookies, saved passwords, history, or extension data",
+  },
+  clipboard_hijack: {
+    label: "Clipboard Hijack",
+    description:
+      "Reading or replacing clipboard contents, often used for crypto address swaps",
+  },
+  windows_lolbins: {
+    label: "Windows LOLBins",
+    description:
+      "Abuse of legitimate Windows binaries (certutil, mshta, bitsadmin, regsvr32) for malicious purposes",
+  },
+  network_listener: {
+    label: "Network Listener",
+    description:
+      "Opening ports to listen for inbound connections, often used for reverse shells or C2",
   },
 };

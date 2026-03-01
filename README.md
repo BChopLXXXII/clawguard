@@ -12,7 +12,7 @@ There's no tool to check skills before installing them. ClawGuard fills that gap
 
 ## What It Scans For
 
-**6 threat categories, 29 detection patterns:**
+**16 threat categories, 95+ detection patterns:**
 
 | Category | What It Catches |
 |---|---|
@@ -22,6 +22,16 @@ There's no tool to check skills before installing them. ClawGuard fills that gap
 | **Env Harvesting** | API key collection, .env exfil, SSH key access, AWS credentials |
 | **Shell Injection** | eval() with variables, child_process.exec(), subprocess shell=True |
 | **Hidden Network** | DNS exfiltration, raw IP callbacks, Tor .onion, encoded URLs |
+| **Reverse Shell** | bash/python/netcat/perl/ruby/PHP reverse shells, /dev/tcp, mkfifo |
+| **Download & Execute** | curl\|bash, wget\|sh, Python urllib+exec, Node fetch+eval |
+| **File Destruction** | rm -rf /, shred, dd overwrite, mkfs, disk wipe utilities |
+| **Persistence** | crontab, systemd services, LaunchAgents, shell profile injection, SSH keys |
+| **Privilege Escalation** | sudo NOPASSWD, SUID/SGID, chmod 777, /etc/shadow access |
+| **PowerShell Threats** | Encoded commands, execution bypass, hidden windows, AMSI bypass, Defender disable |
+| **Browser Theft** | Chrome/Firefox/Safari cookies, saved passwords, extension data |
+| **Clipboard Hijack** | Clipboard monitoring, crypto address replacement attacks |
+| **Windows LOLBins** | certutil, mshta, regsvr32, bitsadmin, rundll32, WMIC, registry abuse |
+| **Network Listener** | netcat/socat/ncat listeners, Python HTTP servers opening ports |
 
 ## Verdicts
 
@@ -39,8 +49,8 @@ There's no tool to check skills before installing them. ClawGuard fills that gap
 ## Run Locally
 
 ```bash
-git clone https://github.com/BChopLXXXII/claw-skill-guard.git
-cd claw-skill-guard
+git clone https://github.com/BChopLXXXII/clawguard.git
+cd clawguard
 npm install
 npm run dev
 ```
@@ -103,4 +113,4 @@ Ship it. 🚀
 
 ---
 
-If this helped, [star the repo](https://github.com/BChopLXXXII/claw-skill-guard) — it helps others find it.
+If this helped, [star the repo](https://github.com/BChopLXXXII/clawguard) — it helps others find it.

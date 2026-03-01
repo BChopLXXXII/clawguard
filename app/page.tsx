@@ -11,6 +11,16 @@ import {
   ArrowRight,
   Github,
   Zap,
+  Radio,
+  Download,
+  Trash2,
+  Clock,
+  ShieldAlert,
+  Monitor,
+  Globe,
+  Clipboard,
+  Wrench,
+  Server,
 } from "lucide-react";
 
 const THREAT_CATEGORIES = [
@@ -54,6 +64,76 @@ const THREAT_CATEGORIES = [
     label: "Hidden Network",
     description:
       "Reveals DNS exfiltration, raw IP callbacks, and Tor .onion connections",
+    color: "red",
+  },
+  {
+    icon: Radio,
+    label: "Reverse Shell",
+    description:
+      "Detects bash/python/netcat/perl/ruby/PHP reverse shell connections",
+    color: "red",
+  },
+  {
+    icon: Download,
+    label: "Download & Execute",
+    description:
+      "Catches curl|bash, wget|sh, and remote code fetch+eval patterns",
+    color: "red",
+  },
+  {
+    icon: Trash2,
+    label: "File Destruction",
+    description:
+      "Flags rm -rf, disk wipes, shred, dd overwrite, and format commands",
+    color: "red",
+  },
+  {
+    icon: Clock,
+    label: "Persistence",
+    description:
+      "Detects crontab, systemd, LaunchAgent, shell profile, and startup backdoors",
+    color: "purple",
+  },
+  {
+    icon: ShieldAlert,
+    label: "Privilege Escalation",
+    description:
+      "Catches sudo NOPASSWD, SUID/SGID, chmod 777, and password file access",
+    color: "orange",
+  },
+  {
+    icon: Monitor,
+    label: "PowerShell Threats",
+    description:
+      "Encoded commands, execution bypass, hidden windows, AMSI bypass, Defender disable",
+    color: "blue",
+  },
+  {
+    icon: Globe,
+    label: "Browser Theft",
+    description:
+      "Detects access to Chrome/Firefox/Safari cookies, passwords, and extension data",
+    color: "yellow",
+  },
+  {
+    icon: Clipboard,
+    label: "Clipboard Hijack",
+    description:
+      "Catches clipboard monitoring and crypto address replacement attacks",
+    color: "orange",
+  },
+  {
+    icon: Wrench,
+    label: "Windows LOLBins",
+    description:
+      "certutil, mshta, regsvr32, bitsadmin, rundll32, WMIC, and registry abuse",
+    color: "blue",
+  },
+  {
+    icon: Server,
+    label: "Network Listener",
+    description:
+      "Detects netcat/socat/ncat listeners and Python servers opening ports",
     color: "red",
   },
 ];
@@ -115,7 +195,7 @@ export default function LandingPage() {
               Scanner
             </Link>
             <a
-              href="https://github.com/BChopLXXXII/claw-skill-guard"
+              href="https://github.com/BChopLXXXII/clawguard"
               target="_blank"
               rel="noopener noreferrer"
               style={{ color: "var(--text-secondary)" }}
@@ -165,9 +245,9 @@ export default function LandingPage() {
           style={{ color: "var(--text-secondary)" }}
           className="text-xl max-w-2xl mx-auto mb-10 leading-relaxed"
         >
-          ClawGuard statically analyzes skills for exfiltration, crypto theft,
-          obfuscation, and 3 more threat categories — in seconds, with no
-          account required.
+          ClawGuard statically analyzes skills across 16 threat categories
+          including reverse shells, persistence, privilege escalation, and more
+          — in seconds, with no account required.
         </p>
 
         <div className="flex items-center justify-center gap-4">
@@ -262,7 +342,7 @@ export default function LandingPage() {
             style={{ color: "var(--text-primary)" }}
             className="text-3xl font-bold tracking-tight mb-3"
           >
-            6 threat categories checked
+            16 threat categories checked
           </h2>
           <p style={{ color: "var(--text-secondary)" }} className="text-lg">
             Every scan runs all patterns — no sign-up, no rate limits.
@@ -394,13 +474,25 @@ export default function LandingPage() {
         }}
         className="py-8 px-6"
       >
-        <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 text-sm">
+        <div className="max-w-6xl mx-auto flex flex-col items-center gap-4 text-sm">
           <div className="flex items-center gap-2">
             <ShieldCheck size={16} style={{ color: "var(--accent-blue)" }} />
             <span>ClawGuard</span>
             <span style={{ color: "var(--border)" }}>—</span>
             <span>Free, open-source skill security scanner</span>
           </div>
+          <span>
+            Built by{" "}
+            <a
+              href="https://x.com/BChopLXXXII"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-white transition-colors"
+              style={{ color: "var(--accent-blue)" }}
+            >
+              @BChopLXXXII
+            </a>
+          </span>
           <div className="flex items-center gap-6">
             <Link href="/scan" className="hover:text-white transition-colors">
               Scanner

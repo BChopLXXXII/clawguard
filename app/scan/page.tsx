@@ -350,18 +350,22 @@ export default function ScanPage() {
                 content: e.target?.result as string,
                 size: file.size,
               });
-            reader.onerror = reject;
+            reader.onerror = () => reject(new Error(`Failed to read file: ${file.name}`));
             reader.readAsText(file);
           })
       )
-    ).then((results) => {
-      setUploadedFiles((prev) => {
-        const existing = new Set(prev.map((f) => f.name));
-        const fresh = results.filter((f) => !existing.has(f.name));
-        return [...prev, ...fresh].slice(0, 10);
+    )
+      .then((results) => {
+        setUploadedFiles((prev) => {
+          const existing = new Set(prev.map((f) => f.name));
+          const fresh = results.filter((f) => !existing.has(f.name));
+          return [...prev, ...fresh].slice(0, 10);
+        });
+        setError(null);
+      })
+      .catch((err) => {
+        setError(err instanceof Error ? err.message : "Failed to upload file");
       });
-      setError(null);
-    });
   }, []);
 
   const handleDrop = useCallback(
@@ -418,7 +422,8 @@ export default function ScanPage() {
         resultsRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
       }, 100);
     } catch (e) {
-      setError(`Network error: ${e instanceof Error ? e.message : "Failed to reach scan API"}`);
+      const message = e instanceof Error ? e.message : "Failed to reach scan API";
+      setError(`Network error: ${message}`);
     } finally {
       setIsScanning(false);
     }
