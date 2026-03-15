@@ -20,8 +20,16 @@ export const metadata: Metadata = {
     description:
       "Scan any ClawHub skill for malicious patterns before you install it.",
     type: "website",
-    url: "https://github.com/BChopLXXXII/clawguard",
+    url: "https://clawguard-nu.vercel.app",
     siteName: "ClawGuard",
+    images: [
+      {
+        url: "https://clawguard-nu.vercel.app/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "ClawGuard — Skill Security Scanner",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
@@ -29,6 +37,7 @@ export const metadata: Metadata = {
     description:
       "Scan any ClawHub skill for malicious patterns before you install it.",
     creator: "@BChopLXXXII",
+    images: ["https://clawguard-nu.vercel.app/og-image.png"],
   },
 };
 
